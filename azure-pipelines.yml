@@ -17,7 +17,7 @@ stages:
             inputs:
               provider: 'azurerm'
               command: 'init'
-              workingDirectory: '$(System.DefaultWorkingDirectory)/module'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/Module'
               backendServiceArm: 'terraformkaservicsconnationhai'
               backendAzureRmStorageAccountName: 'todoaapstaogeaccount'
               backendAzureRmContainerName: 'rectagebuildkeliye'
@@ -27,19 +27,19 @@ stages:
             inputs:
               provider: 'azurerm'
               command: 'validate'
-              workingDirectory: '$(System.DefaultWorkingDirectory)/module'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/Module'
           - task: TerraformTask@5
             displayName: Terraformplan
             inputs:
               provider: 'azurerm'
               command: 'plan'
-              workingDirectory: '$(System.DefaultWorkingDirectory)/module/'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/Module/'
               environmentServiceNameAzureRM: 'terraformkaservicsconnationhai'
           - task: TerraformTask@5
             displayName: Terraformapply
             inputs:
               provider: 'azurerm'
               command: 'apply'
-              workingDirectory: '$(System.DefaultWorkingDirectory)/moudule'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/Moudule'
               environmentServiceNameAzureRM: 'terraformkaservicsconnationhai'
           
