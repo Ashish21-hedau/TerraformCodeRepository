@@ -33,7 +33,7 @@ stages:
             inputs:
               provider: 'azurerm'
               command: 'plan'
-              workingDirectory: '$(System.DefaultWorkingDirectory)/Module/'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/Moudle/'
               environmentServiceNameAzureRM: 'terraformkaservicsconnationhai'
           - task: TerraformTask@5
             displayName: Terraformapply
