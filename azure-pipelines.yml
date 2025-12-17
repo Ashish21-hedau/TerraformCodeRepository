@@ -6,12 +6,12 @@ stages:
     displayName: Terraform Init Plan validate apply 
     jobs:
       - job: TerraformInitPlanvalidateapply
-        displayName: TerraformInitPlanvalidateapply
+        displayName: Terraform Init Plan validate apply
         steps:
           - task: TerraformInstaller@1 
             displayName: TerraformInstaller
             inputs:
-              terraformVersion: 'latest'
+              terraformVersion: '1.14.2'
           - task: TerraformTask@5
             displayName: TerraformInit
             inputs:
