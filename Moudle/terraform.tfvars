@@ -222,7 +222,7 @@ nsgassocations_module = {
 }
 mssqlserver_moudle = {
   mssqlserver1 = {
-    mssqlserver_name             = "devenvirmenrmsaaqlserver"
+    mssqlserver_name             = "devenvormentmssqlserverbeni"
     resource_group_name          = "dev-rgraju1990"
     location                     = "North Europe"
     version                      = "12.0"
@@ -236,14 +236,14 @@ mssqlserver_moudle = {
 }
 mssqldatabases_moudle = {
   mssqldatabase1 = {
-    mssqldatabase_name  = "dev-mssserverashishrfdua"
+    mssqldatabase_name  = "dev-mssserverdevikladatabase"
     resource_group_name = "dev-rgraju1990"
     collation           = "SQL_Latin1_General_CP1_CI_AS"
     license_type        = "LicenseIncluded"
     max_size_gb         = 2
     sku_name            = "S0"
     enclave_type        = "VBS"
-    mssqlserver_name    = "devenvirmenrmsaaqlserver"
+    mssqlserver_name    = "devenvormentmssqlserverbeni"
     tags = {
       foo = "bar"
     }
