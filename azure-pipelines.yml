@@ -2,11 +2,39 @@ trigger:
   - main
 pool: Terraformkaagentpool
 stages:
-  - stage: TerraformInit Plan validate apply
+  - stage: TerraformInitPlanvalidateapply
     displayName: Terraform Init Plan validate apply 
     jobs:
       - job: TerraformInit
         displayName: TerraformInit
         steps:
-           
-        
+          - task: TerraformInstaller@1
+            inputs:
+              terraformVersion: 'latest'
+          - task: TerraformTask@5
+            inputs:
+              provider: 'azurerm'
+              command: 'init'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/module/'
+              backendServiceArm: 'terraformkaservicsconnationhai'
+              backendAzureRmStorageAccountName: 'todoaapstaogeaccount'
+              backendAzureRmContainerName: 'rectagebuildkeliye'
+              backendAzureRmKey: 'ashish.terraformvars'
+          - task: TerraformTask@5
+            inputs:
+              provider: 'azurerm'
+              command: 'validate'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/module/'
+          - task: TerraformTask@5
+            inputs:
+              provider: 'azurerm'
+              command: 'plan'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/module/'
+              environmentServiceNameAzureRM: 'terraformkaservicsconnationhai'
+          - task: TerraformTask@5
+            inputs:
+              provider: 'azurerm'
+              command: 'apply'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/moudule/'
+              environmentServiceNameAzureRM: 'terraformkaservicsconnationhai'
+          
