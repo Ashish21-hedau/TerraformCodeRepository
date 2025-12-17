@@ -1,0 +1,12 @@
+trigger: 
+  - main
+pool: Terraformkaagentpool
+stages:
+  - stage: TerraformInit Plan validate apply
+    displayName: Terraform Init Plan validate apply 
+    jobs:
+      - job: TerraformInit
+        displayName: TerraformInit
+        steps:
+           
+        
