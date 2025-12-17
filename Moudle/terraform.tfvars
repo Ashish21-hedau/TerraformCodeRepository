@@ -222,7 +222,7 @@ nsgassocations_module = {
 }
 mssqlserver_moudle = {
   mssqlserver1 = {
-    mssqlserver_name             = "dev-mssserverashish"
+    mssqlserver_name             = "dev-mssserverashishhedau"
     resource_group_name          = "dev-ashishrg1"
     location                     = "North Europe"
     version                      = "12.0"
@@ -243,7 +243,7 @@ mssqldatabases_moudle = {
     max_size_gb         = 2
     sku_name            = "S0"
     enclave_type        = "VBS"
-    mssqlserver_name    = "dev-mssserverashishkumar"
+    mssqlserver_name    = "dev-mssserverashishhedau"
     tags = {
       foo = "bar"
     }
