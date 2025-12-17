@@ -8,7 +8,7 @@ rg_module = {
 }
 stg_module = {
   stg1 = {
-    storage_account_name     = "devikeekkastorahe"
+    storage_account_name     = "devikeekkastorahehedau"
     resource_group_name      = "dev-ashishrg11"
     location                 = "North Europe"
     account_tier             = "Standard"
