@@ -8,10 +8,12 @@ stages:
       - job: TerraformInit
         displayName: TerraformInit
         steps:
-          - task: TerraformInstaller@1
+          - task: TerraformInstaller@1 
+            displayName: TerraformInstaller
             inputs:
               terraformVersion: 'latest'
           - task: TerraformTask@5
+            displayName: TerraformInit
             inputs:
               provider: 'azurerm'
               command: 'init'
@@ -21,17 +23,20 @@ stages:
               backendAzureRmContainerName: 'rectagebuildkeliye'
               backendAzureRmKey: 'ashish.terraformvars'
           - task: TerraformTask@5
+            displayName: Terraformvalidate
             inputs:
               provider: 'azurerm'
               command: 'validate'
               workingDirectory: '$(System.DefaultWorkingDirectory)/module/'
           - task: TerraformTask@5
+            displayName: Terraformplan
             inputs:
               provider: 'azurerm'
               command: 'plan'
               workingDirectory: '$(System.DefaultWorkingDirectory)/module/'
               environmentServiceNameAzureRM: 'terraformkaservicsconnationhai'
           - task: TerraformTask@5
+            displayName: Terraformapply
             inputs:
               provider: 'azurerm'
               command: 'apply'
