@@ -16,14 +16,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Show current folder
+        run: |
+          pwd
+          dir
+
       - name: Terraform Init
-        working-directory: TerraformCodeRepository
         run: terraform init
 
       - name: Terraform Validate
-        working-directory: TerraformCodeRepository
         run: terraform validate
 
       - name: Terraform Plan
-        working-directory: TerraformCodeRepository
         run: terraform plan -input=false
