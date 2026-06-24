@@ -1,31 +1,22 @@
-name: Terraform CI Pipeline
+name: "Terraform Azure Deploy"
 
 on:
-  push:
+  pull_request:
     branches:
-      - master
+      - main
 
-  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
-  my_job:
-    name: Deploy to staging
+  TerraformWorkFlow:
     runs-on: self-hosted
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Show current folder
-        run: |
-          pwd
-          dir
-
-      - name: Terraform Init
-        run: terraform init
-
-      - name: Terraform Validate
-        run: terraform validate
-
-      - name: Terraform Plan
-        run: terraform plan -input=false
+      - name: Checkout
+        uses: actions/checkout@v7.0.0
+        
+      - name: HashiCorp - Setup Terraform
+        uses: hashicorp/setup-terraform@v2.0.3
