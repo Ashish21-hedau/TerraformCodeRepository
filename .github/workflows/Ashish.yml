@@ -1,24 +1,26 @@
 name: Terraform CI Pipeline
+
 on:
   push:
     branches:
-    - master
-  
+      - master
+
   workflow_dispatch:
 
 jobs:
   my_job:
-    name: deploy to staging
+    name: Deploy to staging CI
     runs-on: self-hosted
- 
-   steps:
-      - uses: actions/checkout@v4
-      
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Run a one-line script
         run: echo Hello, world!
 
-      - name: Run a multi-line terraform Init validate and Plan script
+      - name: Terraform Init Validate and Plan
         run: |
-            terrafom Init
-            terraform validate
-            terraform plan 
+          terraform init
+          terraform validate
+          terraform plan
