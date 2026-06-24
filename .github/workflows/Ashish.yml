@@ -20,3 +20,12 @@ jobs:
         
       - name: HashiCorp - Setup Terraform
         uses: hashicorp/setup-terraform@v2.0.3
+
+      - name: Terraform Init
+        run: terraform init -chdir=./path/to/terraform
+
+      - name: Terraform Validate
+        run: terraform validate -chdir=./path/to/terraform
+
+      - name: Terraform Plan
+        run: terraform plan -chdir=./path/to/terraform -input=false
